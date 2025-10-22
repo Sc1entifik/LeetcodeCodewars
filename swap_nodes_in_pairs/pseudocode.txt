@@ -1,0 +1,27 @@
+Leetcode problem SwapNodes In Pairs
+Given a linked list, swap every two adjacent nodes and return its head. you must solve the problem without modifying the values in the list's nodes. The head parameter in this problem is given in the form of Option<Box<ListNode>>. ListNode is defined in main.rs but is a super simple Linked List implementation.
+
+Constraints:
+The number of nodes in the list is in the range [0, 100]
+0 <= Node.val <=100
+
+Example:
+Nodes pointing to 1234 will now point to 2143
+
+1) Match head.clone(). A clone is needed here because of borrow checker rules encountered in later steps.
+	None case: return None as you got to the end of the linked list.
+	Some(mut old_head_node): move on to step 2.
+2) Create a new_head variable set to old_head.next
+3) Match new_head.
+		None case: return head as there is no new_head to return
+		Some(mut new_head_node) move on to step 4
+4) Create an old_head_next variable set to a recursive call to swap_pairs(new_head_node.next). This will be the node the old head will now point to while the new head will end up pointing to the old head. 
+5) Underneath old_head_next set old_head_node.next = old_head_next;
+6) Set new_head_node.next = Some(old_head_node);
+7) Return Some(new_head_node) from the inner match statement.
+
+
+Things learned from doing this problem.
+1) Some wraps an object in an Option enum which resolves to either None or the type declared inside the Option<T>.
+2) Matching and unwrapping all these things was less difficult than I anticipated.
+3) The recursive function worked really well in Rust given borrow checkers and all that. Nothing really seemed to get in my way.
