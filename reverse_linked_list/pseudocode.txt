@@ -1,0 +1,12 @@
+Given the head of a singly linked list, reverse the list and return the reversed list using recursion.
+
+
+1) Create a helper function that takes current and next parameters.
+2) match current 
+	a) None => None
+	b) Some(mut current_node) =>
+		1) Set a new_next variable set to current_node.next.
+		2) Set current_node.next to next.
+		3) match new_next
+			a) None => Some(current_node)
+			b) Some (new_head_node) => recursion call passing in Some(new_head_node) and Some (current_node)
