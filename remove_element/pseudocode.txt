@@ -1,0 +1,9 @@
+Leetcode Problem: Remove Element
+
+Given an integer array nums and an integer val, remove all occurences of val in nums IN-PLACE. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+1) Return the len of nums.retain(|x| *x != val}}).
+
+
+Things I learned from this problem.
+1) I learned about the .retain() higher order function which is filter but acts in place instead of creating an iterator.
