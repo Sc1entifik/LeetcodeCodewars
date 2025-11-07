@@ -1,0 +1,16 @@
+Code Wars Find The Unique String
+
+Given an array of strings all strings contain similar letters except one. Try to find it!
+
+1) Create a sortedStrings variable by calling arr.map() and passing in x, y parameter for the string and index.
+2) Inside the map create a variable called cleanString set to x.toLowerCase().split("").
+3) Create yet another list called sortedUniqueStrings = [... new Set(cleanString)]. This removes all duplicate letters and spaces from all entries. The set is needed here to get rid of duplicate letters in some of the longer words that have similar letters.
+4) Return a tuple of the join of sortedUniqueString and the y index from the map function.
+5) Create an empty map called sortedStringMap.
+6) Use sortedStrings.forEach to set a key and a count for each string in sortedStrings.
+	a) Set a key variable set to x[0].
+	b) check if sortedStringMap.get(key) returns a truthy value.
+	c) If it does increment the value stored there by one.
+	d) else set a new value at that key to 1.
+7) Create a new variable called returnIndex after the forEach loop set to sortedStrings.filter(x => sorgedStringMap.get(x[0]) === 1)[0][1]; This works because there should only be one entry in the list that has a singular count and the index that was stored in the tuple will be returned. 
+9) Return inputArray[returnIndex]. 
